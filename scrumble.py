@@ -3,7 +3,7 @@
 
 import json
 import random
-
+import codecs
 
 def get_gift(people):
   return tuple(people)[random.randint(0, len(people)-1)]
@@ -25,7 +25,7 @@ def scrumble(couples):
 
 
 if __name__ == "__main__":
-  with open('conf.json', 'r') as fh:
+  with codecs.open('conf.json', 'r', 'utf8') as fh:
     data = json.load(fh)
 
   cont = True
@@ -34,6 +34,8 @@ if __name__ == "__main__":
       gifts = scrumble(data["couple"])
       cont = False
       for p, g in gifts.iteritems():
-        print p, " fait un cadeau à:", g
+        print u"%(per)s fait un cadeau à: %(gift)s" % {
+          'per' : p, 'gift' : g}
+
     except ValueError, e:
       cont = True
