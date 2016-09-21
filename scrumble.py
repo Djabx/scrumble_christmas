@@ -34,7 +34,7 @@ if __name__ == "__main__":
       gifts = scrumble(data["couple"])
       cont = False
       for p, g in gifts.iteritems():
-        print u"%(per)s fait un cadeau à: %(gift)s" % {
+        print u"%(per)15s -> %(gift)s" % {
           'per' : p, 'gift' : g}
 
     except ValueError, e:
