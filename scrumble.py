@@ -28,6 +28,9 @@ if __name__ == "__main__":
   with codecs.open('conf.json', 'r', 'utf8') as fh:
     data = json.load(fh)
 
+  # init random to what is given by user
+  random.seed(data.get("date", None))
+
   cont = True
   while cont:
     try:
